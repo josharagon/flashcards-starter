@@ -74,6 +74,6 @@ describe('Round', function(){
         round.takeTurn('gallbladder')
         round.takeTurn('Fitzgerald')
         expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
-    })
+    });
 
 });
