@@ -4,22 +4,32 @@ class Round {
     constructor(deck) {
         this.deck = deck,
         this.turns = 0,
-        this.incorrectGuesses = [],
-        this.turns = 0
-
+        this.incorrectGuesses = []
     }
     returnCurrentCard() {
-        return this.deck[0]
+        return this.deck.cards[0]
     }
 
-    takeTurn(guess) {
-        this.turns++
-        turn = new Turn(guess, this.deck[0]);
-        turn.giveFeedback();
+    takeTurn(newGuess) {
+        this.turns++    
+        const turn = new Turn(newGuess, this.deck.cards[0]);
+        if (newGuess === this.deck.cards[0].correctAnswer) {
+            this.deck.cards.shift();
+            return turn.giveFeedback();
+        } else {
+            this.incorrectGuesses.push(this.deck.cards[0].id);
+            this.deck.cards.shift();
+            return turn.giveFeedback();
+        }
     }
     
     calculatePercentCorrect() {
-        return (this.turns / this.incorrectGuesses);
+        const finalPercent = this.incorrectGuesses.length * 100 / this.turns
+        return `${100 - Math.round(finalPercent)}%`;
+    }
+
+    endRound() {
+        return(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
     }
 }
 

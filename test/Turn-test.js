@@ -33,12 +33,18 @@ describe('Turn', function() {
     it('should be able to return a boolean value if the user’s guess matches the correct answer on the card', function() {
         const card = new Card(1, 'What is my favorite animal', ['dog', 'cat', 'tiger'], 'polar bear')
         const turn = new Turn('cat', card)
+        const card2 = new Card(2, 'What is my favorite car', ['rx7', 'supra', 'wrx sti'], 'skyline gtr')
+        const turn2 = new Turn('skyline gtr', card2)
         expect(turn.evaluateGuess()).to.equal(false)
+        expect(turn2.evaluateGuess()).to.equal(true)
     });
 
     it('should tell the user if they are correct or not', function(){
         const card = new Card(1, 'What is my favorite animal', ['dog', 'cat', 'tiger'], 'polar bear')
         const turn = new Turn('polar bear', card)
+        const card2 = new Card(2, 'What is my favorite car', ['rx7', 'supra', 'wrx sti'], 'skyline gtr')
+        const turn2 = new Turn('rx7', card2)
         expect(turn.giveFeedback()).to.equal('correct!')
+        expect(turn2.giveFeedback()).to.equal('incorrect!')
     });
 });
