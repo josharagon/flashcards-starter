@@ -1,5 +1,5 @@
 const Turn = require("./Turn");
-
+const game = require('../index')
 class Round {
   constructor(deck) {
     this.deck = deck,
@@ -39,7 +39,7 @@ class Round {
       setTimeout(function(){ console.log("2"); }, 2000);
       setTimeout(function(){ console.log("1"); }, 3000);
       setTimeout(function(){ console.clear(); }, 4000);
-      //CANT FIGURE OUT HOW TO RESTART GAME!!!!!!!
+      setTimeout(function(){ game.restartGame(); }, 4500);
     }
   }
 }

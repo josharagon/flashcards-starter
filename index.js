@@ -18,3 +18,6 @@ game.start(prototypeData);
 function restartGame() {
     game.start(prototypeData);
 }
+
+
+module.exports.restartGame = restartGame;
