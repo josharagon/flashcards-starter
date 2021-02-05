@@ -1,5 +1,6 @@
 const Turn = require("./Turn");
-
+const Game = require("./Game");
+const { prototypeData } = require("./data");
 class Round {
     constructor(deck) {
         this.deck = deck,
@@ -8,11 +9,7 @@ class Round {
         this.currentRound = 1;
     }
     returnCurrentCard() {
-        if (!this.deck.cards[0]) {
-            this.endRound();
-        } else {
-            return this.deck.cards[0];
-        }
+        return this.deck.cards[0];
     }
 
     takeTurn(newGuess) {
@@ -35,7 +32,15 @@ class Round {
 
     endRound() {
         this.currentRound++;
-        console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
+        const finalScore = this.calculatePercentCorrect();
+        console.log(`** Round over! ** You answered ${finalScore} of the questions correctly!`)
+        if (parseInt(finalScore) < 90) {
+            console.log('Minimum passing score is 90... Let\'s try again!')
+            setTimeout(function(){ console.log("Starting new game in 3..."); }, 1000);
+            setTimeout(function(){ console.log("2"); }, 2000);
+            setTimeout(function(){ console.log("1"); }, 3000);
+            setTimeout(function(){ console.clear(); }, 4000);
+        }
     }
 }
 
