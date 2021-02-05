@@ -12,11 +12,15 @@ console.log('Node server running on port 3000');
 
 const game = new Game();
 
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
 
 game.start(prototypeData);
 
 function restartGame() {
-    game.start(prototypeData);
+  shuffle(prototypeData);
+  game.start(prototypeData);
 }
 
 
