@@ -10,7 +10,6 @@ class Game {
     this.cards = [];
     this.deck = [];
     this.round;
-    this.currentRound = 0;
   }
   start(cardsArr) {
     cardsArr.forEach(cardObj => {
@@ -19,13 +18,12 @@ class Game {
    });
     this.deck = new Deck(this.cards);
     this.round = new Round(this.deck);
-    this.currentRound++;
     this.printMessage(this.deck, this.currentRound);
     this.printQuestion(this.round);
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards. **ROUND: ${this.currentRound}**
+      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards. **ROUND: ${this.round.currentRound}**
 -----------------------------------------------------------------------`)
   }
 

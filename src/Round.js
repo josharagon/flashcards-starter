@@ -5,9 +5,14 @@ class Round {
         this.deck = deck,
         this.turns = 0,
         this.incorrectGuesses = []
+        this.currentRound = 1;
     }
     returnCurrentCard() {
-        return this.deck.cards[0]
+        if (!this.deck.cards[0]) {
+            this.endRound();
+        } else {
+            return this.deck.cards[0];
+        }
     }
 
     takeTurn(newGuess) {
@@ -29,7 +34,8 @@ class Round {
     }
 
     endRound() {
-        return(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
+        this.currentRound++;
+        console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
     }
 }
 
