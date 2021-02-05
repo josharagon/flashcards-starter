@@ -34,7 +34,7 @@ class Round {
     const finalScore = this.calculatePercentCorrect();
     console.log(`** Round over! ** You answered ${finalScore} of the questions correctly!`)
     if (parseInt(finalScore) < 90) {
-      console.log('Minimum passing score is 90%... Let\'s try again!')
+      console.log('Minimum passing score is 90%... Let\'s try this round again!')
       setTimeout(function(){ console.log("Starting new game in 3..."); }, 1000);
       setTimeout(function(){ console.log("2"); }, 2000);
       setTimeout(function(){ console.log("1"); }, 3000);
