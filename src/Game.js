@@ -15,7 +15,7 @@ class Game {
     cardsArr.forEach(cardObj => {
       const card = new Card(cardObj.id, cardObj.question, cardObj.answers, cardObj.correctAnswer);
       this.cards.push(card);
-   });
+    });
     this.deck = new Deck(this.cards);
     this.round = new Round(this.deck);
     this.printMessage(this.deck, this.currentRound);
@@ -23,12 +23,12 @@ class Game {
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards. **ROUND: ${this.round.currentRound}**
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards. **ROUND: ${this.round.currentRound}**
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 

@@ -14,3 +14,7 @@ const game = new Game();
 
 
 game.start(prototypeData);
+
+function restartGame() {
+    game.start(prototypeData);
+}
